@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Battle.sea-人間vs AI</title>
+	<meta name="description" content="Battleboat.js：戦艦で人間を打ち負かすJavaScript AI">
+	<meta name="keywords" content="Battleboat.js, 戦艦, AI, ロボット, JavaScript">
+	<meta name="google" content="notranslate">
+	<link rel="icon" type="image/png" href="img/favicon.png" />
+	<link rel="image_src" href="img/apple-touch-icon-144x144-precomposed.png" />
+	<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" href="img/apple-touch-icon-precomposed.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="img/apple-touch-icon-57x57-precomposed.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72-precomposed.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114-precomposed.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="img/apple-touch-icon-144x144-precomposed.png" />
+	
+
+	<link href="css/styles.css"  rel="stylesheet" media="all"/>
+</head>
+
+<body>
+	
+<div class="container">
+	<h1>Battle sea</h1>
+	<p class="tagline">人間 vs AI</p>
+	<p>How to play</p>
+	<ol class="instructions">
+		<li id="step1">左側から船を選択してください</li>
+		<li id="step2">あなたの艦隊マップに戦艦をすべて配置してください</li>
+		<li id="step3">スタートボタンをクリックし、敵艦隊マップのセルをクリックします<br></li>
+		<li id="step4">敵艦隊のマップからAIが配置した5隻の艦隊を<br>
+		相手より早く撃ち落としてください！</li>
+	</ol>
+	<div class="game-container">
+		<div id="restart-sidebar" class="hidden">
+			<h2>もう一回？</h2>
+			<button id="restart-game">Restart Game</button>
+		</div><div id="roster-sidebar">
+			<h2>戦艦を配置</h2>
+			<ul class="fleet-roster">
+				<li id="patrolboat">巡視船</li>
+				<li id="submarine">潜水艦</li>
+				<li id="destroyer">破壊船</li>
+				<li id="battleship">戦艦</li>
+				<li id="carrier">空母</li>
+			</ul>
+			<button id="rotate-button" data-direction="0">船を回転</button>
+			<button id="start-game" class="hidden">スタート</button>
+			<button id="place-randomly" class="hidden">Place Randomly and Start</button>
+		</div><div id="stats-sidebar">
+			<h2>統計</h2>
+			<p><strong>勝利回数</strong></p>
+			<p id="stats-wins">0 of 0</p>
+			<p><strong>Accuracy</strong></p>
+			<p id="stats-accuracy">0%</p>
+			<button id="reset-stats">統計リセット</button>
+			<button id="prob-heatmap" class="hidden">Show Probability Heatmap</button>
+		</div><div class="grid-container">
+			<h2>あなたの艦隊</h2>
+			<div class="grid human-player"><span class="no-js">Please enable JavaScript to play this game</span></div>
+		</div><div class="grid-container">
+			<h2>AIの艦隊</h2>
+			<div class="grid computer-player"><span class="no-js">Please enable JavaScript to play this game</span></div>
+		</div>
+	</div>
+	
+	<p>Created by <a href="https://www.instagram.com/uhhwee_1107/">kousey</a>.</p>
+	
+</div>
+
+<style>
+  * *, *::before, *::after { 
+    animation-play-state: running !important;
+  }
+</style>
+<script>window.setTimeout = null;</script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MDXLY4NGC1"></script>
+<script>
+// Don't change this variable.
+var DEBUG_MODE = localStorage.getItem('DEBUG_MODE') === 'true';
+// To turn DEBUG_MODE on, run `setDebug(true);` in the console.
+if (!DEBUG_MODE) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MDXLY4NGC1');
+}
+</script>
+
+<script src="js/battleboat.js"></script>
+<span class="prefetch" id="prefetch1"></span>
+<span class="prefetch" id="prefetch2"></span>
+<span class="prefetch" id="prefetch3"></span>
+</body>
+</html>
+
+
